@@ -2,8 +2,7 @@
 This Library is encoding inputed text with AES cipher, and decode. Then, you use your own key.
 
 ## Requirement
-Python 3.5.2
-pycrypto 2.6.1
+Python 3.5.2  pycrypto 2.6.1
 
 ## Usage
 ```
