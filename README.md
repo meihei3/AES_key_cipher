@@ -9,10 +9,9 @@ pycrypto 2.6.1
 ```
 from CipherTools import cipher_decode
 from CipherTools import cipher_encode
-from CipherTools import encode_base64
 
 if __name__ == '__main__':
-    key = encode_base64(input('key >> '))
+    key = base64.b64encode(input('key >> ').ensode('utf-8'))
     # type of key is only base64.
     data = input('data >> ')
     crypto_data = cipher_encode(data, key)
