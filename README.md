@@ -23,4 +23,4 @@ if __name__ == '__main__':
 
 ## Licence
 
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
+[MIT](https://github.com/yameholo/AES_key_cipher/blob/master/LICENSE.txt)
