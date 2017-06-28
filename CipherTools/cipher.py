@@ -34,7 +34,7 @@ def cipher_encode(raw_data, key):
     # raw_data is str
     if not is_str(raw_data):
         raise ValueError("raw_data type is str")
-	if not is_str(key):
+    if not is_str(key):
         raise ValueError("raw_data type is str")
     raw_data_base64 = encode_base64(raw_data)
     data_base64 = set_16byte(raw_data_base64)
@@ -45,8 +45,8 @@ def cipher_encode(raw_data, key):
 
 
 def cipher_decode(enc, key):
-	if not is_str(key):
-		raise ValueError("raw_data type is str")
+    if not is_str(key):
+        raise ValueError("raw_data type is str")
     iv = enc[:AES.block_size]
     secret_key = hashlib.sha256(encode_base64(key)).digest()
     crypto = AES.new(secret_key, AES.MODE_CBC, iv)
