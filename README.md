@@ -15,7 +15,7 @@ if __name__ == '__main__':
     encoded_data = ct.cipher_encode(data, key)
     print(encoded_data)
 
-    decoded_data = ct.cipher_decode(crypto_data, key) 
+    decoded_data = ct.cipher_decode(encoded_data, key) 
     print(decoded_data)
 ```
 
