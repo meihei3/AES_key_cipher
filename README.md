@@ -12,9 +12,11 @@ import CipherTools as ct
 if __name__ == '__main__':
     key = input('key >> ')
     data = input('data >> ')
-    crypto_data = ct.cipher_encode(data, key)
+    encoded_data = ct.cipher_encode(data, key)
+    print(encoded_data)
 
-    print(ct.cipher_decode(crypto_data, key))
+    decoded_data = ct.cipher_decode(crypto_data, key) 
+    print(decoded_data)
 ```
 
 ## Licence
