@@ -34,17 +34,21 @@ def cipher_encode(raw_data, key):
     # raw_data is str
     if not is_str(raw_data):
         raise ValueError("raw_data type is str")
+	if not is_str(key):
+        raise ValueError("raw_data type is str")
     raw_data_base64 = encode_base64(raw_data)
     data_base64 = set_16byte(raw_data_base64)
-    secret_key = hashlib.sha256(key).digest()
+    secret_key = hashlib.sha256(encode_base64(key)).digest()
     iv = Random.new().read(AES.block_size)
     crypto = AES.new(secret_key, AES.MODE_CBC, iv)
     return iv + crypto.encrypt(data_base64)
 
 
 def cipher_decode(enc, key):
+	if not is_str(key):
+		raise ValueError("raw_data type is str")
     iv = enc[:AES.block_size]
-    secret_key = hashlib.sha256(key).digest()
+    secret_key = hashlib.sha256(encode_base64(key)).digest()
     crypto = AES.new(secret_key, AES.MODE_CBC, iv)
     raw_data_base64 = crypto.decrypt(enc[AES.block_size:])
     p = restore_16byte(raw_data_base64)
@@ -52,7 +56,6 @@ def cipher_decode(enc, key):
 
 if __name__ == '__main__':
     key = input("key >> ")
-    key = encode_base64(key)
     enc = cipher_encode("いろはにほへと", key)
     print(enc)
     print(cipher_decode(enc, key))
