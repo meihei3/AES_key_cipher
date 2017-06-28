@@ -15,7 +15,7 @@ if __name__ == '__main__':
     crypto_data = ct.cipher_encode(data, key)
 
     print(ct.cipher_decode(crypto_data, key))
-'''
+```
 
 ## Licence
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
